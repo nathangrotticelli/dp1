@@ -1,7 +1,22 @@
 angular.module('sociogram.services', [])
 .factory('PetService', function() {
   var events = {};
-  var events2 = [];
+  var events2 = [
+        // {
+        //     "watchName": "Amazon Product Number 42222",
+        //     "watchPhoto": "http://i01.i.aliimg.com/wsphoto/v0/2044502801_1/2014-font-b-Bewell-b-font-Women-Dress-font-b-Watch-b-font-Super-Hot-font.jpg",
+        //     "watchPrice": "$10",
+        //     "watchLink": "http://www.google.com",
+        //     "watchLikes": []
+        // },
+        // {
+        //     "watchName": "Amazon Product Number 52222",
+        //     "watchPhoto": "http://i.ebayimg.com/00/s/MTYwMFgxNDY2/z/-NsAAOxygPtSp-vc/$_35.JPG",
+        //     "watchPrice": "$11",
+        //     "watchLink": "http://www.google.com",
+        //     "watchLikes": []
+        // }
+    ];
 
   var single = {};
   var privateList = {};
@@ -15,6 +30,7 @@ angular.module('sociogram.services', [])
   var singleView = false;
  var startCard = true;
  var userPic = "";
+ var tabs = true;
  var cards = ["start"];
  var followCount = 0;
   var foll9 = function(watchList,event){
@@ -64,6 +80,12 @@ angular.module('sociogram.services', [])
             },
             getFollowCount: function(){
               return followCount;
+            },
+            setTabs: function(value) {
+                tabs = value;
+            },
+            getTabs: function(){
+              return tabs;
             },
             setSchool: function(schoolName) {
                 school = schoolName;

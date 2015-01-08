@@ -61,27 +61,15 @@
   </div>
 
 </div>
-<br><br>
+<div ng-if="events2.length==0||events2.length==undefined">
+<br><br><br>
+<h1 class="ion-loading-c"></h1>
+</div>
+<br><br><br>
 
  </ion-scroll>
 
-  <div class = "unMenu2 ">
-  <!-- <button on-swipe-left="onSwipeLeft()" class="button">Test</button> -->
-  <!-- <div> ng-show="tinderView == false"-->
-  <!-- <a class="tinderBtn ion-images" ng-show="tinderView == false" ng-click="tinderYes()"></a> -->
-  <a class="tinderBtn ion-ios7-time activeTab"  ng-click="tinderNo()"></a>
-  <!-- <hr class="menuDivider"> -->
-    <!-- <button class="tinderBtn" ng-click="tinderView=!tinderView">Tinder</button> -->
-  <!-- <img ng-show="newNot==false" class="profileBtn" ng-click="openPopover($event)">Open</button> -->
-  <a class="prof-image ion-ios7-search-strong" ng-click=""></a>
-   <!-- <hr class="menuDivider2"> -->
-  <!-- <a ng-if="newNot!=false" class="prof-image2 ion-person" ng-click="openPopover($event);"></a> -->
-  <!-- <a ng-show="newNot2==true" class="prof-image3 ion-person" ng-click="openPopover($event);"></a> -->
-  <!-- <button ng-show="newNot==true" class="profileBtn2" ng-click="openPopover($event); newNot=false;">New Notification</button> -->
-<!-- </div> --><!-- ion-calendar -->
- <!-- <a class="topMenu2 ion-navicon" menu-toggle="right"></a> -->
-<a class="topMenu ion-person" ng-click="loginPrompt()"></a>
-</div>
+
 
  <!-- <ion-pane > -->
 
@@ -106,6 +94,8 @@
 
 
  </ion-content>
+
+
 </ion-view>
 
 

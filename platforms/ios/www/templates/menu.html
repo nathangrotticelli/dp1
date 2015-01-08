@@ -4,6 +4,17 @@
     <ion-pane ion-side-menu-content drag-content="main.dragContent">
 
         <ion-nav-view name="menuContent"></ion-nav-view>
+        <ion-footer-bar ng-if="main.tabs" align-title="left" class="unMenu2">
+   <div class = "">
+
+  <a class="tinderBtn ion-ios7-time activeTab"  ng-click=""></a>
+
+  <a class="prof-image ion-ios7-search-strong" ng-click=""></a>
+
+<a class="topMenu ion-person" ng-click="loginPrompt()"></a>
+</div>
+</ion-footer-bar>
+
     </ion-pane>
 
     <ion-side-menu side="right">
@@ -38,6 +49,7 @@
 
 
         </ion-content>
+
     </ion-side-menu>
 
 </ion-side-menus>

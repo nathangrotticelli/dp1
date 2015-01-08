@@ -7,17 +7,15 @@
 
 
 
-	 	 <ion-content scrollbar-y="true" scroll="true" padding="false">
-
- <div id='expandedEvent'>
- 		<a class="topBtn ion-ios7-arrow-left" ng-click="goLogin()">
+	 	 <ion-content scroll="true" padding="false">
+	 	 	 <a class="topBtn ion-ios7-arrow-left" ng-click="singleBackBtn()">
 	 	</a>
-
+ <ion-scroll id='expandedEvent'  scrollbar-y="true">
 
 	 <div id='singleEventContent'>
 
 
-	    		<img src="{{getCover(singleWatch.watchPhoto)}}">
+	    		<img class="singleImage" src="{{getCover(singleWatch.watchPhoto)}}">
           <!-- <img ng-if="singleEvent.cover==true" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
 		<!-- 			<p class="watchName">
@@ -54,6 +52,14 @@
 	       			 </div>
 						  </div>
 
+						  <!-- <div class = " "> -->
+						  	<a class="button unMenu33 icon-right ion-ios7-arrow-right" ng-click="goAmazon(singleWatch.watchLink)">{{singleWatch.watchPrice}} on Amazon Prime</a>
+							  <!-- <div class="ion-ios7-arrow-right">{{singleWatch.watchPrice}} on Amazon Prime -->
+							  	<!-- <div  class="ion-ios7-arrow-right priceArrow"></div> -->
+
+							  <!-- </div> -->
+							  <!-- </div> -->
+
 
 						<!--   <div ng-if="singleEvent.timeOfEvent!=null" class="item item-icon-left item-divider">
 			    			<i class="icon ion-ios7-alarm-outline"></i>
@@ -89,6 +95,12 @@
 
 	 	</div>
 
-</div>
+</ion-scroll>
+
+
+
  </ion-content>
+
+
+
 </ion-view>

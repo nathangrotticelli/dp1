@@ -6,6 +6,7 @@ angular.module('sociogram.controllers', ['ionic'])
       $scope.main={};
       $scope.main.dragContent = true;
 
+
     //logout functionality
     $scope.logout = function () {
 
@@ -17,6 +18,13 @@ angular.module('sociogram.controllers', ['ionic'])
       // }
 
     };
+
+      $scope.loginPrompt = function() {
+             $location.path('/app/loginPrompt');
+             PetService.setTabs(false);
+             StatusBar.styleDefault();
+             // $scope.main.tabs = false;
+           };
 
     // $scope.goEvents = function(){
     //   $timeout(function() {
@@ -63,18 +71,10 @@ angular.module('sociogram.controllers', ['ionic'])
   .controller('LoginCtrl', function ($scope, $ionicPlatform, $ionicScrollDelegate, $ionicPopup, $http, $location, $ionicLoading ,OpenFB, $state, $stateParams, PetService) {
     // $scope.main = {};
     // alert(window.StatusBar);
-
-    //expands single event
-    $scope.go_here = function (watch) {
-          // $scope.scroll = $ionicScrollDelegate.getScrollPosition().top;
-      PetService.setSingle(watch);
-      // PetService.setSingleView(true);
-            // $state.go("app.event-detail");
-
-       StatusBar.styleDefault();
-        $location.path('/app/event-detail');
-        // $ionicScrollDelegate.scrollTop(false);
-    };
+$scope.goAmazon = function(link){
+  window.open(link,"_system");
+};
+// window.open('http://apache.org', '_blank', 'location=yes');
 
     $scope.getCover = function(watchCover){
   if(watchCover==undefined){
@@ -96,20 +96,22 @@ angular.module('sociogram.controllers', ['ionic'])
     };
 
     $scope.getWatches = function(){
+
           $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet',
           {testInfo: 'testInfo recieved'}).then(function (res1) {
           // alert(res1.data.watchList.listName);
 
           // $scope.events2 = res1.data.watchList.watchIndex;
-         PetService.setEvents2(res1.data.watchList.watchesIndex);
+          PetService.setEvents2(res1.data.watchList.watchesIndex);
           $scope.events2 = res1.data.watchList.watchesIndex;
          // alert(res1.data.watchList.watchesIndex);
        });
 
     };
-
+// $scope.setTabs = function(){}
 
       $scope.loginPrompt = function() {
+
 //this is lagging, why?
     // $state.go("app.feed");
     // $state.go("app.feed");
@@ -124,6 +126,8 @@ angular.module('sociogram.controllers', ['ionic'])
          // $ionicScrollDelegate.scrollTop(false);
              // alert($ionicScrollDelegate.getScrollPosition().top);
       $location.path('/app/loginPrompt');
+        StatusBar.styleDefault();
+       // $scope.main.tabs = false;
           // $state.go("app.loginPrompt");
         // $ionicScrollDelegate.scrollTop(false);
       // $location.path('/app/event-detail');
@@ -134,25 +138,29 @@ angular.module('sociogram.controllers', ['ionic'])
     };
       $scope.goLogin = function(){
 
-    // if(PetService.getSingleView()==true){
-    //     $location.path('/app/event-detail');
-    //   }else{
-
-    //   }
-
-      // $ionicScrollDelegate.scrollTop(false);
-          // $state.go("app.login");
-              StatusBar.styleLightContent();
-          $location.path('/app/login');
-          // $ionicScrollDelegate.scrollTop(false);
-
-          // $location.path('/app/login');
-           // $ionicScrollDelegate.scrollTo(0,$scope.scroll,false);
-       // $location.path('/app/login');
-         // $ionicScrollDelegate.scrollTop(false);
+    if(PetService.getSingleView()==true){
+      $location.path('/app/event-detail');
+    }else{
+        StatusBar.styleLightContent();
+      $location.path('/app/login');
+    }
 
     };
 
+      $scope.singleBackBtn = function(){
+          PetService.setSingleView(false);
+             $scope.goLogin();
+    };
+        //expands single event
+    $scope.go_here = function (watch) {
+          // $scope.scroll = $ionicScrollDelegate.getScrollPosition().top;
+      PetService.setSingle(watch);
+      PetService.setSingleView(true);
+            // $state.go("app.event-detail");
+       StatusBar.styleDefault();
+      $location.path('/app/event-detail');
+        // $ionicScrollDelegate.scrollTop(false);
+    };
 
 
       // window.StatusBar.backgroundColorByName("red");
@@ -201,16 +209,21 @@ angular.module('sociogram.controllers', ['ionic'])
     // $scope.noPop='false';
     // queryGo=false;
       $scope.main.dragContent = false;
+      $scope.main.tabs = PetService.getTabs();
+      PetService.setTabs(true);
       // $ionicScrollDelegate.scrollTop(false);
      // $scope.singleView = PetService.getSingleView();
      $scope.singleWatch = PetService.getSingle();
 
-    if(PetService.getEvents2.length<1){
+    // if(PetService.getEvents2().length<1){
+      // $scope.getWatches();
+    // }
+    // else{
+    if(PetService.getEvents2().length==0){
       $scope.getWatches();
     }
-    else{
-      $scope.events2 = PetService.getEvents2();
-    }
+    $scope.events2 = PetService.getEvents2();
+    // }
     // $scope.doThis2=function(){
     //   // $scope.showAlert("Connection to the server could not be acheived at this time. Increase your WiFi/service or try again later.","Failed.");
     //   $scope.showAlert("We couldn't verify that as a valid university email. Make sure you are on the right portal for your respective university, and that you entered your OWN valid email. If you are in fact a student at this school, and continue to experience trouble, shoot us an email at UNightlifeTeam@gmail.com.");

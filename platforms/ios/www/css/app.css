@@ -35,6 +35,17 @@
   /*left:-5%;*/
 
 }
+.bottomTab2{
+    /*width: 100%!important;*/
+    /*height:8%;*/
+    /*bottom:0;*/
+    /*position: absolute;*/
+  /*z-index: 999!important;*/
+  background-color: #ecf0f1;
+   opacity: 1;
+   color:black;
+   /*margin-bottom: 0%;*/
+}
 .cardName2{
   /*font-family: 'Alegreya', serif;*/
   /*color:white;*/
@@ -731,8 +742,8 @@ padding: 0;
   /*margin-bottom: 2%;*/
 }
 .watchFeedBtns2 i{
-    padding-top: 2.5%;
-  padding-bottom: 2.5%;
+    padding-top: 3.5%;
+  padding-bottom: 4.5%;
  font-size: 31px;
   padding: 10%;
   margin-left: 5%;
@@ -1205,38 +1216,18 @@ html {
     padding-bottom: 50px;
     padding-top: 15%;
   }
+
     .unMenu2{
-    /*-webkit-animation: show 1.2s 1;*/
-    /*-webkit-animation: show 1.2s 1;*/
-  /*float: left;*/
-  margin-bottom: 0%;
-  background-color: #ecf0f1!important;
-  width: 100%!important;
-  z-index: 999!important;
-  /*height:0;*/
-  /*width:5%;*/
-  padding-top:13%;
-  /*padding-bottom: %;*/
-  bottom:0%;
-  border-top: .5px solid lightgray;
+ background-color: #ecf0f1!important;
+    opacity: .9;
+    color:black;
   font-size: 33px;
-  /*font-variant: small-caps;*/
-  /*top:3%;*/
-  opacity: .9;
-  /*padding-right: 7%;*/
-  /*padding-left: 7%;*/
-  /*padding-top: 1%;*/
-  /*iphone 4 change*/
-  /*padding-right: 10%;*/
-  /*padding-left: 85%;*/
-  /*padding-bottom:1%;*/
-  /*height:9%;*/
-  /*max-width: 10%;*/
-  color: black;
-  position: absolute;
+  /*transition: opacity linear 25ms;*/
+
 
   /*right:3.5%;*/
 }
+
 .searchIcon{
   /*font-size: 50px;*/
   /*padding-top:1.5px;*/
@@ -1257,6 +1248,15 @@ html {
    /*font-size: 30px;*/
    /*height: 1px!important;*/
    /*color: black!important;*/
+}
+.priceArrow{
+  font-size: 35px;
+   padding-left: 10%;
+   /*vertical-align: center;*/
+   background-color: blue;
+   /*margin-bottom: 5%;*/
+   /*position: absolute;*/
+   /*margin:0px!important;*/
 }
 .streamArrow{
   /*font-size: 50px;*/
@@ -1311,6 +1311,7 @@ html {
       opacity: .8;
 
 }
+
 .watchName{
     font-size: 17px;
   font-family: 'Gafata', sans-serif;
@@ -1326,15 +1327,9 @@ html {
 }
 
  .unMenu22{
-    /*-webkit-animation: show 1.2s 1;*/
-    /*-webkit-animation: show 1.2s 1;*/
-  /*float: left;*/
-  /*margin-bottom: 1%;*/
   background-color: #FF5B37!important;
   width: 100%!important;
   z-index: 999!important;
-  /*height:0;*/
-  /*width:5%;*/
   padding-bottom:3%;
   padding-top: 10.5%;
   text-align: center;
@@ -1342,23 +1337,36 @@ html {
   /*border-bottom: 1px solid #141414;*/
   font-size: 20px;
   font-family: 'Gafata', sans-serif;
-  /*font-variant: small-caps;*/
-  /*top:3%;*/
-  /*opacity: 1;*/
-  /*padding-right: 7%;*/
-  /*padding-left: 7%;*/
-  /*padding-top: 1%;*/
-  /*iphone 4 change*/
-  /*padding-right: 10%;*/
-  /*padding-left: 85%;*/
-  /*padding-bottom:1%;*/
-  /*height:9%;*/
-  /*max-width: 10%;*/
   opacity: 1;
   color: white;
   position: absolute;
-
-  /*right:3.5%;*/
+}
+ .unMenu33{
+  background-color: #FF5B37;
+  width: 100%;
+  /*z-index: 999!important;*/
+  /*padding-bottom:3%;*/
+   /*padding-top: 10.5%;*/
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding-top: 3%;
+  padding-bottom:3%;
+  /*padding-right: 5%;*/
+  /*height:6%;*/
+  /*padding-top: 1%;*/
+  /*padding-bottom: 1%;*/
+  text-align: center;
+  border:none;
+  border-radius: none;
+  /*vertical-align: center;*/
+  /*top:%;*/
+  /*border-bottom: 1px solid #141414;*/
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Gafata', sans-serif;
+  /*opacity: 1;/*/
+  color: white!important;
+  /*position: absolute;*/
 }
 .joinTxt{
     font-size: 21px;
@@ -1407,6 +1415,8 @@ html {
   /*transition: opacity linear 1500ms;*/
   text-align: center;
   background-color: yellow;
+  /*opacity: .9;*/
+
 
 
   /*{enter: fadeInto, leave: fadeInto}*/
@@ -1460,7 +1470,7 @@ html {
   #eventList{
   margin: auto;
   /*margin-top: 0;*/
-  margin-top: 16.5%;
+  margin-top: 20%;
   bottom: 0%;
   padding-left: 0px;
   padding-right: 0px;
@@ -1645,7 +1655,7 @@ html {
 }*/
 
 
-.fade-bar {
+.fade-bar222 {
   height: 20px;
   width: 10%;
   position: fixed;
@@ -1844,6 +1854,7 @@ button{
     transition: opacity linear 240ms;
 }
 
+
 /*  .ng-enter .swipe-card{
     opacity: 0;
   }*/
@@ -1873,13 +1884,15 @@ button{
   /*margin-bottom: 20%;*/
 }
 .topBtn{
-  font-size: 40px;
+  font-size: 45px;
   color:#141414;
   /*text-align: left;*/
   /*float:left;*/
   /*font-variant: small-caps;*/
   /*vertical-align: center;*/
   /*top:-50px;*/
+  z-index: 999!important;
+  /*display: inline!important;*/
   /*border:6px solid black;*/
   /*border-bottom: thick double;*/
   /*border-left: thick double;*/
@@ -1889,8 +1902,11 @@ button{
   /*padding: */
   position: absolute;
   left:5%;
-  top:3%;
-  width: 15%;
+  top:4%;
+  width: 18%;
+  height: 12%;
+  /*padding-right: 15%;*/
+  /*padding-bottom: 15%;*/
   /*padding-left: 5%;
   padding-right: 5px;
   padding-top: 5%;*/
@@ -2000,8 +2016,10 @@ font-size: 17px;
 
 #singleEventContent img{
   min-height: 20%;
-  max-height:55%;
+  max-height:50%;
   max-width: 100%;
+  padding-top: 10%;
+  padding-bottom: 10%;
   display: block;
   margin-left: auto;
   margin-right: auto;
