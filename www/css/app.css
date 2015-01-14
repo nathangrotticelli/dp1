@@ -77,29 +77,30 @@
   /*word-wrap:none!important;*/
   /*max-height:150px;*/
 }
-.tinderBtn{
-   position: absolute;
-  left: 12%;
-  bottom:2%;
+.leftTab{
+ z-index: 999!important;
   color:#141414;
-  padding: 1%;
+/*    background-color: blue;*/
+  padding: 10.5%;
+    padding-top: 4%;
+}
+.rightTab{
 
+  bottom:1%;
+   padding: 10.5%;
+    padding-top: 4%;
+     z-index: 999!important;
+  color:#141414;
 }
 
-
-.prof-image{
+.middleTab{
   color:#141414;
-    position: absolute;
-  left: 46%;
-  bottom:2%;
-   padding: 1%;
-  /*padding-bottom:3%;*/
-  /*padding-top:3%;*/
-  /*padding-left:8%;*/
-  /*padding-right:8%;*/
-  /*border-right: 1px solid #141414;*/
-   /*border-left: 1px solid #141414;*/
+   /*background-color: blue;*/
+  padding: 10.5%;
+    padding-top: 4%;
+     z-index: 999!important;
 }
+
 .menuDivider{
   border:1px solid #141414;
   color:#141414;
@@ -136,14 +137,12 @@
   top:1%;
   -webkit-animation: colorPulse 2s;
 }
-
-.topMenu{
-  position: absolute;
-  left: 79%;
-  bottom:3%;
-   padding: 1%;
-  color:#141414;
+.tabDiv3{
+   width:125px;
+   /*height: 100px;*/
+   z-index: 999;
 }
+
 .topMenu2{
 
   position: absolute;
@@ -1221,7 +1220,12 @@ html {
  background-color: #ecf0f1!important;
     opacity: .9;
     color:black;
-  font-size: 33px;
+  font-size: 35px;
+    text-align: center;
+     margin-bottom: 0;
+     /*margin-right: 2%;*/
+      padding-top: 2%;
+      display: inline;
   /*transition: opacity linear 25ms;*/
 
 
@@ -1294,7 +1298,7 @@ html {
 }*/
 .front{
   z-index: 999;
-  padding-top: 1%;
+  padding-top: 4%;
   padding-bottom: 1%;
   /*border-radius: 8%;*/
   border-bottom: 1px solid lightgray;
@@ -1317,6 +1321,8 @@ html {
   font-family: 'Gafata', sans-serif;
   color:#141414;
   text-align: center;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
 }
 .likePrice{
   font-size: 16px;
@@ -1719,28 +1725,12 @@ html {
 .full-image {
   /*position: relative;*/
   /*margin-top: 8%;*/
-  width: 80%;
-  max-height: 45%;
-  opacity: .95;
-  /*border-top:1px gray solid;*/
-  /*border-radius: 10%;*/
-  /*padding-left: .5%;*/
-   /*padding-right: .5%;*/
-  background-color: transparent;
-  opacity: .9;
-  padding: 3%;
-  /*padding-top: 0;*/
-  /*padding-bottom: 3%;*/
-  /*border-top:1px #141414 solid;*/
-  /*border-radius: 55%;*/
-  /*border-top: 1px solid #ecf0f1;*/
-  /*border-image: url("../images/transimg.gif");*/
-/*  border: 0px;*/
-  /*border-style: inset;*/
-
-/*  border-top-width: 10px;*/
-  /*border-width: 8px;*/
-  /*border-color: silver;*/
+   /*min-height: 20%;*/
+  max-height:275px;
+  min-height: 150px;
+  /*width: 80%;*/
+  max-width: 40%;
+  /*margin-top: 2%;*/
 }
 .ion-item
 

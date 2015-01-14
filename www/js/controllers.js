@@ -74,6 +74,52 @@ angular.module('sociogram.controllers', ['ionic'])
 $scope.goAmazon = function(link){
   window.open(link,"_system");
 };
+
+     $scope.refreshWatches = function(){
+      // var userItem = $scope.userItem;
+      // var notCount = $scope.userItem.notifications.length;
+      // alert($scope.doAlert);
+      // if($scope.doAlert == true){
+        // alert("here");
+      // $scope.doAlert = false;
+      // var schoolName = $scope.userItem.userSchool;
+      // var userEmail = $scope.userItem.userEmail;
+    $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet',
+          {testInfo: 'testInfo recieved'}).error(function(err){
+            // alert(err);
+            $scope.showAlert("Internet connection could not be acheived at this time. Try again later.",null);
+          }).then(function (res1) {
+          // alert(res1.data.watchList.listName);
+
+          // $scope.events2 = res1.data.watchList.watchIndex;
+          PetService.refreshWatches(res1.data.watchList.watchesIndex);
+
+          // PetService.setWatchList(res1.data.watchList.watchesIndex);
+          // $scope.watchList = res1.data.watchList.watchesIndex;
+         // alert(res1.data.watchList.watchesIndex);
+       }).then(function(){
+              $scope.watchList = PetService.getWatchList();
+             $scope.$broadcast('scroll.refreshComplete');
+       });
+
+        // alert(schoolName);
+        //  $http.post('http://stark-eyrie-6720.herokuapp.com/watchesGet', {testInfo: 'testInfo recieved'})
+        //  .error(function(err){
+        //     alert(err);
+        //        // $scope.scopeCards();
+        //      // $scope.doAlert = true;
+        //    $scope.$broadcast('scroll.refreshComplete');
+        //   }).success(function(res2){
+        //     // alert('here1');
+        //   // alert(res.Item.schoolName)
+
+        // // alert(PetService.refreshWatches());
+        // alert(res2.data);
+        //   // $scope.watchList = PetService.getWatches();
+        //     $scope.$broadcast('scroll.refreshComplete');
+        // })
+
+    };
 // window.open('http://apache.org', '_blank', 'location=yes');
 
     $scope.getCover = function(watchCover){
@@ -102,8 +148,8 @@ $scope.goAmazon = function(link){
           // alert(res1.data.watchList.listName);
 
           // $scope.events2 = res1.data.watchList.watchIndex;
-          PetService.setEvents2(res1.data.watchList.watchesIndex);
-          $scope.events2 = res1.data.watchList.watchesIndex;
+          PetService.setWatchList(res1.data.watchList.watchesIndex);
+          $scope.watchList = res1.data.watchList.watchesIndex;
          // alert(res1.data.watchList.watchesIndex);
        });
 
@@ -219,10 +265,10 @@ $scope.goAmazon = function(link){
       // $scope.getWatches();
     // }
     // else{
-    if(PetService.getEvents2().length==0){
+    if(PetService.getWatchList().length==0){
       $scope.getWatches();
     }
-    $scope.events2 = PetService.getEvents2();
+    $scope.watchList = PetService.getWatchList();
     // }
     // $scope.doThis2=function(){
     //   // $scope.showAlert("Connection to the server could not be acheived at this time. Increase your WiFi/service or try again later.","Failed.");

@@ -1,7 +1,7 @@
 angular.module('sociogram.services', [])
 .factory('PetService', function() {
   var events = {};
-  var events2 = [
+  var watchList = [];
         // {
         //     "watchName": "Amazon Product Number 42222",
         //     "watchPhoto": "http://i01.i.aliimg.com/wsphoto/v0/2044502801_1/2014-font-b-Bewell-b-font-Women-Dress-font-b-Watch-b-font-Super-Hot-font.jpg",
@@ -16,7 +16,7 @@ angular.module('sociogram.services', [])
         //     "watchLink": "http://www.google.com",
         //     "watchLikes": []
         // }
-    ];
+    // ];
 
   var single = {};
   var privateList = {};
@@ -57,11 +57,11 @@ angular.module('sociogram.services', [])
     getCache: function () {
                 return profileCache;
             },
-            getEvents2: function () {
-                return events2;
+            getWatchList: function () {
+                return watchList;
             },
-            setEvents2: function(value) {
-                events2 = value;
+            setWatchList: function(value) {
+                watchList = value;
             },
           getEvents: function () {
                 return events;
@@ -215,22 +215,26 @@ angular.module('sociogram.services', [])
                 cards = ["start"];
                 followCount = 0;
             },
-             refreshEvents: function(value) {
-                var eventsArr = {};
-               for(var key in value){
-                    // alert('hi');
-                    if(value[key].banned!="banned"){
-                      // alert('hi');
-                      eventsArr[key] = value[key];
+             refreshWatches: function(value) {
+                var newWatchList = [];
+                  for(a=0;a<value.length;a++){
+                      if(newWatchList.indexOf(value[a])==-1){
+                        newWatchList.push(value[a]);
+                      }
                     }
-                    // else{
-
-                    // }
-
-                        // alert('hi');
-                  }
-                  events = eventsArr;
-
+                watchList = newWatchList;
           }
+        //       refreshWatches: function(value) {
+        //         var newWatchList = [];
+        //           for(a=0;a<value.length;a++){
+        //               if(newWatchList.indexOf(value[a])<0){
+        //                 // alert(watchList.indexOf(value[a]));
+        //               alert('new event');
+        //                 newWatchList.push(value[a]);
+        //               }
+        //             }
+        //         watchList = newWatchList;
+        //   }
+        // }
         }
 });

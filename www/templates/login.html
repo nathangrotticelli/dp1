@@ -24,15 +24,16 @@
 
 
   <ion-scroll scrollbar-y="true" id="eventList">
-
+      <ion-refresher id="re1" pulling-icon="none" refreshing-icon="ion-ios7-reloading"  on-refresh="refreshWatches()">
+  </ion-refresher>
 
   <!-- <hr class="div12"> -->
 
 <!-- data = data.substr(0, 4) + " " + data.substr(4, 6) -->
-  <div class="eventScroller" ng-repeat="event in events2" ng-click="" >
+  <div class="eventScroller" ng-repeat="watch in watchList" ng-click="" >
 
-    <div class="front" ng-click="go_here(event)">
-    <img class="full-image" src="{{event.watchPhoto}}">
+    <div class="front" ng-click="go_here(watch)">
+    <img class="full-image" src="{{watch.watchPhoto}}">
     <!-- <img ng-hide="event.cover!=undefined" ng-click="go_here(event)" class="full-image" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
           <div class="eventInfoSection">
@@ -40,18 +41,18 @@
              <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
              <a ng-click="" class="ion-ios7-eye watchBtn"></a>
       <!-- <h3 id="eventName">{{event.name}}</h3> -->
-      <div ng-init="event.showPrice=false; event.showWish=false;" class="watchFeedBtns item-text-wrap">
-        <h2 class="watchName">{{event.watchName}}</h2>
-        <h2 class="likePrice">{{event.watchLikes.length}} likes/{{event.watchPrice}}</h2>
+      <div ng-init="watch.showPrice=false; watch.showWish=false;" class="watchFeedBtns item-text-wrap">
+        <h2 class="watchName">{{watch.watchName}}</h2>
+        <h2 class="likePrice">{{watch.watchLikes.length}} likes/{{watch.watchPrice}}</h2>
 
                 <!--   <i ng-click="expandPrice(event)" ng-if="event.showPrice==false" class="icon ion-cash"></i>
                   <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
                  10.00
                </i> -->
-               <i ng-click="$event.stopPropagation(); addWish(event);" ng-if="event.showWish==false" class="icon ion-ios7-heart-outline"></i>
-               <i ng-click="$event.stopPropagation(); removeWish(event);" ng-if="event.showWish==true" class="icon red ion-ios7-heart"></i>
+               <i ng-click="$event.stopPropagation(); addWish(watch);" ng-if="event.showWish==false" class="icon ion-ios7-heart-outline"></i>
+               <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-if="event.showWish==true" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); loginPrompt();" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',event.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
       <!-- <p id="eventLocation" ng-if="event.location!=null"><i class="icon ion-cash"></i> {{event.location}}</p> -->
@@ -61,7 +62,7 @@
   </div>
 
 </div>
-<div ng-if="events2.length==0||events2.length==undefined">
+<div ng-if="watchList.length==0||watchList.length==undefined">
 <br><br><br>
 <h1 class="ion-loading-c"></h1>
 </div>
