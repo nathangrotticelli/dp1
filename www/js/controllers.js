@@ -223,13 +223,13 @@ $scope.goAmazon = function(link){
      $scope.expandPrice= function(event) {
      event.showPrice = !event.showPrice;
     };
-     $scope.addWish= function(event) {
-     event.showWish = true;
-     event.watchLikes.push({"name":"Nathan"});
+     $scope.addWish= function(watch) {
+     watch.watchLiked = true;
+     watch.watchLikes.push({"name":"Nathan"});
     };
-     $scope.removeWish= function(event) {
-      event.showWish = false;
-      event.watchLikes.pop();
+     $scope.removeWish= function(watch) {
+      watch.watchLiked = false;
+      watch.watchLikes.pop();
     };
     //used to throw better looking popup messages to user
     $scope.showAlert = function(message,title) {

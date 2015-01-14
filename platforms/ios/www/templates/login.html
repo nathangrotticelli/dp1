@@ -39,9 +39,9 @@
           <div class="eventInfoSection">
             <!-- watchAction(event); -->
              <!-- <a ng-hide="event.watched" ng-click="$event.stopPropagation();" class="ion-ios7-eye-outline watchBtn"></a> -->
-             <a ng-click="" class="ion-ios7-eye watchBtn"></a>
+             <!-- <a ng-click="" class="ion-ios7-eye watchBtn"></a> -->
       <!-- <h3 id="eventName">{{event.name}}</h3> -->
-      <div ng-init="watch.showPrice=false; watch.showWish=false;" class="watchFeedBtns item-text-wrap">
+      <div ng-init="watch.showPrice=false; watch.watchLiked=false;" class="watchFeedBtns item-text-wrap">
         <h2 class="watchName">{{watch.watchName}}</h2>
         <h2 class="likePrice">{{watch.watchLikes.length}} likes/{{watch.watchPrice}}</h2>
 
@@ -49,8 +49,8 @@
                   <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
                  10.00
                </i> -->
-               <i ng-click="$event.stopPropagation(); addWish(watch);" ng-if="event.showWish==false" class="icon ion-ios7-heart-outline"></i>
-               <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-if="event.showWish==true" class="icon red ion-ios7-heart"></i>
+               <i ng-click="$event.stopPropagation(); addWish(watch);" ng-if="watch.watchLiked==false" class="icon ion-ios7-heart-outline"></i>
+               <i ng-click="$event.stopPropagation(); removeWish(watch);" ng-if="watch.watchLiked==true" class="icon red ion-ios7-heart"></i>
                <i ng-click="$event.stopPropagation(); loginPrompt();" class="icon ion-ios7-plus-empty"></i>
                <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',watch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
