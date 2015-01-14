@@ -31,6 +31,7 @@ angular.module('sociogram.services', [])
  var startCard = true;
  var userPic = "";
  var tabs = true;
+  var backBtn = false;
  var cards = ["start"];
  var followCount = 0;
   var foll9 = function(watchList,event){
@@ -86,6 +87,12 @@ angular.module('sociogram.services', [])
             },
             getTabs: function(){
               return tabs;
+            },
+            setBack: function(value) {
+                backBtn = value;
+            },
+            getBack: function(){
+              return backBtn;
             },
             setSchool: function(schoolName) {
                 school = schoolName;

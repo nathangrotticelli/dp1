@@ -2,19 +2,12 @@
 <ion-view>
 
 
+	 	 <ion-content scroll="false">
 
 
-
-
-
-	 	 <ion-content scroll="true" padding="false">
-	 	 	 <a class="topBtn ion-ios7-arrow-left" ng-click="singleBackBtn()">
-	 	</a>
  <ion-scroll id='expandedEvent'  scrollbar-y="true">
 
-	 <div id='singleEventContent'>
-
-
+<br><br><br>
 	    		<img class="singleImage" src="{{getCover(singleWatch.watchPhoto)}}">
           <!-- <img ng-if="singleEvent.cover==true" src="http://i62.tinypic.com/2zznq55.jpg" > -->
 
@@ -26,7 +19,7 @@
 	    		</p> -->
 
 
-						  <div ng-init="singleWatch.showPrice=false; singleWatch.showWish=false;" class="watchFeedBtns2">
+						  <div ng-init="singleWatch.showPrice=false; singleWatch.watchLiked=false;" class="watchFeedBtns2">
         <h2 class="watchName">{{singleWatch.watchName}}</h2>
         <h2 class="likePrice">{{singleWatch.watchLikes.length}} likes/{{singleWatch.watchPrice}}</h2>
 
@@ -34,10 +27,10 @@
                   <i ng-click="expandPrice(event)" ng-if="event.showPrice==true" class="animate-if">
                  10.00
                </i> -->
-               <i ng-click="$event.stopPropagation(); addWish(event);" ng-if="singleWatch.showWish==false" class="icon ion-ios7-heart-outline"></i>
-               <i ng-click="$event.stopPropagation(); removeWish(event);" ng-if="singleWatch.showWish==true" class="icon red ion-ios7-heart"></i>
-               <i ng-click="$event.stopPropagation(); loginPrompt();" class="icon ion-ios7-plus-empty"></i>
-               <i ng-click="$event.stopPropagation(); shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',singleWatch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
+               <i ng-click="addWish(singleWatch);" ng-if="singleWatch.watchLiked==false" class="icon ion-ios7-heart-outline"></i>
+               <i ng-click="removeWish(singleWatch);" ng-if="singleWatch.watchLiked==true" class="icon red ion-ios7-heart"></i>
+               <i ng-click="loginPrompt();" class="icon ion-ios7-plus-empty"></i>
+               <i ng-click="shareBtn('Check out this watch I found via Dimepiece: http://unightlife.io/app. What do you think?', 'Check This Dimepiece.',singleWatch.watchPhoto, null);" class="icon ion-ios7-upload-outline"></i>
 
               </div>
 
@@ -93,7 +86,6 @@
 							</div> -->
 			    			<!-- <br> -->
 
-	 	</div>
 
 </ion-scroll>
 

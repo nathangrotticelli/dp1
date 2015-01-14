@@ -4,7 +4,19 @@
     <ion-pane ion-side-menu-content drag-content="main.dragContent">
 
         <ion-nav-view name="menuContent"></ion-nav-view>
-        <ion-footer-bar ng-if="main.tabs" align-title="left" class="unMenu2">
+
+
+
+         <ion-nav-bar ng-if="main.backBtn" class="backBar"  ng-click="goBack()">
+  <ion-nav-back-button class="backBar2">
+     <a class="topBtn ion-ios7-arrow-left" >
+    </a>
+  </ion-nav-back-button>
+</ion-nav-bar>
+
+
+
+        <ion-footer-bar ng-if="main.tabs" class="unMenu2">
    <div>
 
   <a class="leftTab ion-ios7-time activeTab"  ng-click=""></a>

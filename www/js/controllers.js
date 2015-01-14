@@ -5,6 +5,7 @@ angular.module('sociogram.controllers', ['ionic'])
 
       $scope.main={};
       $scope.main.dragContent = true;
+      // $scope.main.backBtn = false;
 
 
     //logout functionality
@@ -68,7 +69,7 @@ angular.module('sociogram.controllers', ['ionic'])
   })
 
 
-  .controller('LoginCtrl', function ($scope, $ionicPlatform, $ionicScrollDelegate, $ionicPopup, $http, $location, $ionicLoading ,OpenFB, $state, $stateParams, PetService) {
+  .controller('LoginCtrl', function ($scope, $ionicPlatform, $ionicNavBarDelegate, $ionicScrollDelegate, $ionicPopup, $http, $location, $ionicLoading ,OpenFB, $state, $stateParams, PetService) {
     // $scope.main = {};
     // alert(window.StatusBar);
 $scope.goAmazon = function(link){
@@ -157,6 +158,9 @@ $scope.goAmazon = function(link){
 // $scope.setTabs = function(){}
 
       $scope.loginPrompt = function() {
+           $location.path('/app/loginPrompt');
+             PetService.setTabs(false);
+             StatusBar.styleDefault();
 
 //this is lagging, why?
     // $state.go("app.feed");
@@ -164,47 +168,36 @@ $scope.goAmazon = function(link){
     // $timeout(function() {
 
     // },100);
-    // if(PetService.getSingleView()==true){
-      // $location.path('/app/event-detail');
-    // }else{
-      // alert('here');
-      // $state.go("app.loginPrompt");
-         // $ionicScrollDelegate.scrollTop(false);
-             // alert($ionicScrollDelegate.getScrollPosition().top);
-      $location.path('/app/loginPrompt');
-        StatusBar.styleDefault();
-       // $scope.main.tabs = false;
-          // $state.go("app.loginPrompt");
-        // $ionicScrollDelegate.scrollTop(false);
-      // $location.path('/app/event-detail');
-    // }
-
- //     // myPopup.close(); //close the popup after 3 seconds for some reason
- //  }, 500);
     };
       $scope.goLogin = function(){
 
     if(PetService.getSingleView()==true){
       $location.path('/app/event-detail');
+       $scope.main.backBtn = true;
     }else{
+      // PetService.setBack(false);
         StatusBar.styleLightContent();
       $location.path('/app/login');
     }
 
     };
 
-      $scope.singleBackBtn = function(){
-          PetService.setSingleView(false);
-             $scope.goLogin();
+      $scope.goBack = function(){
+        // PetService.setBack(false);
+       $ionicNavBarDelegate.back();
+       // $scope.main.backBtn = true;
     };
+
         //expands single event
     $scope.go_here = function (watch) {
           // $scope.scroll = $ionicScrollDelegate.getScrollPosition().top;
       PetService.setSingle(watch);
+        PetService.setBack(true);
       PetService.setSingleView(true);
-            // $state.go("app.event-detail");
        StatusBar.styleDefault();
+       // PetService.setBack(true);
       $location.path('/app/event-detail');
+      $scope.main.backBtn = true;
         // $ionicScrollDelegate.scrollTop(false);
     };
 
@@ -256,7 +249,10 @@ $scope.goAmazon = function(link){
     // queryGo=false;
       $scope.main.dragContent = false;
       $scope.main.tabs = PetService.getTabs();
+      $scope.main.backBtn = PetService.getBack();
+
       PetService.setTabs(true);
+       PetService.setBack(false);
       // $ionicScrollDelegate.scrollTop(false);
      // $scope.singleView = PetService.getSingleView();
      $scope.singleWatch = PetService.getSingle();
