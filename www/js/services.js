@@ -19,6 +19,40 @@ angular.module('sociogram.services', [])
     // ];
 
   var single = {};
+  var shopCatList = [
+        {
+            "catName": "Techie",
+            "catPhoto": "http://i57.tinypic.com/10ek1p3.jpg"
+        },
+        {
+            "catName": "Minimalist",
+            "catPhoto": "http://i62.tinypic.com/5ys3nk.jpg"
+        },
+        {
+            "catName": "Adventurous",
+            "catPhoto": "http://i58.tinypic.com/mw6zhw.jpg"
+        },
+        {
+            "catName": "Stylish",
+            "catPhoto": "http://i61.tinypic.com/2rcy24z.jpg"
+        },
+        {
+            "catName": "Modern",
+            "catPhoto": "http://i62.tinypic.com/2821ism.jpg"
+        },
+        {
+            "catName": "Under $20",
+            "catPhoto": "http://i57.tinypic.com/wu3406.jpg"
+        },
+        {
+            "catName": "Boyfriendy",
+            "catPhoto": "http://i57.tinypic.com/2iuzw9l.jpg"
+        },
+        {
+            "catName": "Outdoorsy",
+            "catPhoto": "http://i59.tinypic.com/1zzt5i0.jpg"
+        }
+      ];
   var privateList = {};
   var userItem = {};
   var school = "";
@@ -34,6 +68,8 @@ angular.module('sociogram.services', [])
   var backBtn = false;
  var cards = ["start"];
  var followCount = 0;
+
+
   var foll9 = function(watchList,event){
 
       // alert(watchedIndex);&&watchList[i].start_time==event.start_time
@@ -57,6 +93,9 @@ angular.module('sociogram.services', [])
   return {
     getCache: function () {
                 return profileCache;
+            },
+             getCatList: function () {
+                return shopCatList;
             },
             getWatchList: function () {
                 return watchList;

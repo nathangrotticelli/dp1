@@ -24,7 +24,6 @@ angular.module('sociogram.controllers', ['ionic'])
              $location.path('/app/loginPrompt');
              PetService.setTabs(false);
              StatusBar.styleDefault();
-             // $scope.main.tabs = false;
            };
 
     // $scope.goEvents = function(){
@@ -34,19 +33,33 @@ angular.module('sociogram.controllers', ['ionic'])
     //   $location.path('/app/person/me/feed');
     //   //allows for scroll position on the event feed to be maintained. Think about doing this for the other menu buttons
     // };
-    $scope.goEvents = function() {
-//this is lagging, why?
-    // $state.go("app.feed");
-    // $state.go("app.feed");
-    $timeout(function() {
 
-    },100);
+      $scope.goEvents = function(){
 
     if(PetService.getSingleView()==true){
       $location.path('/app/event-detail');
+       $scope.main.backBtn = true;
     }else{
-      $location.path('/app/person/me/feed');
+      // PetService.setBack(false);
+        StatusBar.styleLightContent();
+      $location.path('/app/login');
     }
+
+    };
+
+      $scope.goShop = function() {
+//this is lagging, why?
+    // $state.go("app.feed");
+    // $state.go("app.feed");
+    // $timeout(function() {
+
+    // },100);
+
+    // if(PetService.getShopView()==true){
+      // $location.path('/app/shop-detail');
+    // } else{
+      $location.path('/app/shop');
+    // }
 
  //     // myPopup.close(); //close the popup after 3 seconds for some reason
  //  }, 500);
@@ -265,6 +278,7 @@ $scope.goAmazon = function(link){
       $scope.getWatches();
     }
     $scope.watchList = PetService.getWatchList();
+    $scope.shopCatList = PetService.getCatList();
     // }
     // $scope.doThis2=function(){
     //   // $scope.showAlert("Connection to the server could not be acheived at this time. Increase your WiFi/service or try again later.","Failed.");

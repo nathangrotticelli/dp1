@@ -88,7 +88,24 @@ angular.module('sociogram', ['ionic', 'openfb','objectFilters','sociogram.contro
                         }
                       }
                   })
-
+                    .state('app.shop', {
+                      url: "/shop",
+                      views: {
+                        'menuContent': {
+                          templateUrl: 'templates/shop.html',
+                          controller: "LoginCtrl"
+                        }
+                      }
+                  })
+                         .state('app.shop-detail', {
+                      url: "/shop-detail",
+                      views: {
+                        'menuContent': {
+                          templateUrl: 'templates/shop-detail.html',
+                          controller: "LoginCtrl"
+                        }
+                      }
+                  })
             .state('app.logout', {
                 url: "/logout",
                 views: {
